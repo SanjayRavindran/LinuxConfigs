@@ -48,7 +48,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "tilda"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -561,4 +561,11 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("picom --config /home/sanjay/.config/picom/picom.conf")
+awful.spawn.with_shell("solaar ---window=hide")
+
+
 -- }}}
